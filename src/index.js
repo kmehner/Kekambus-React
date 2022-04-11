@@ -8,4 +8,4 @@ const root = ReactDOM.createRoot(
 
 const app = <App />
 
-root.render(app)
+root.render(app);
