@@ -11,6 +11,13 @@ export default class App extends Component{
         }
     }
 
+    componentDidMount(){
+      console.log('App Mounted')
+      fetch(`https://ergast.com/api/f1/2010/driverStandings.json`)
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }
+
     handleButtonClick = (step) => {
         let newCount = this.state.count + step;
         this.setState({
@@ -26,7 +33,7 @@ export default class App extends Component{
                 <div className='container'>
                     <h1>Hello World!</h1>
                     <h4 className='text-center'>Current Count: {this.state.count}</h4>
-                    {myButtonSteps.map(step => <Button step={step} handleClick={this.handleButtonClick} />)}
+                    {myButtonSteps.map((step, i) => <Button step={step} key={i} handleClick={this.handleButtonClick} />)}
     
                 </div>
             </>
